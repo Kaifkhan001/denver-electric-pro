@@ -16,6 +16,7 @@ export function Contact() {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
+  const [mapFailed, setMapFailed] = useState(false)
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -104,16 +105,27 @@ export function Contact() {
               </li>
             </ul>
 
-            <iframe
-              title="Denver service area map"
-              src="https://maps.google.com/maps?q=Denver,CO,USA&output=embed&z=12"
-              width="100%"
-              height="220"
-              style={{ border: 0, borderRadius: 8 }}
-              allowFullScreen
-              loading="lazy"
-              className="mt-6"
-            />
+            {mapFailed ? (
+              <div
+                className="mt-6 flex w-full items-center justify-center rounded-lg"
+                style={{
+                  height: 220,
+                  background: '#e8e8e8',
+                  color: '#666',
+                  fontSize: 14,
+                }}
+              >
+                📍 Serving Denver, CO and surrounding areas
+              </div>
+            ) : (
+              <img
+                src="https://maps.googleapis.com/maps/api/staticmap?center=Denver,CO&zoom=12&size=600x220&maptype=roadmap&color:0x1A1A2E&key=YOUR_API_KEY_HERE"
+                alt="Denver service area map"
+                className="mt-6 w-full rounded-lg object-cover"
+                style={{ height: 220 }}
+                onError={() => setMapFailed(true)}
+              />
+            )}
           </div>
 
           {/* Form */}
