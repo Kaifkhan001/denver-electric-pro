@@ -26,10 +26,9 @@ export function About() {
                   key={stat.label}
                   className="rounded-xl border border-border bg-card p-4 text-center"
                 >
-                  <dt className="sr-only">{stat.label}</dt>
-                  <dd className="text-2xl font-bold text-primary sm:text-3xl">
+                  <dt className="text-2xl font-bold text-primary sm:text-3xl">
                     {stat.value}
-                  </dd>
+                  </dt>
                   <dd className="mt-1 text-sm leading-snug text-muted-foreground">
                     {stat.label}
                   </dd>

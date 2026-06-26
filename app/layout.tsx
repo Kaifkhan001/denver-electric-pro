@@ -13,7 +13,6 @@ export const metadata: Metadata = {
   title: 'Denver Electric Pro | Licensed Residential Electrician in Denver, CO',
   description:
     "Denver's trusted licensed and insured electrician. Panel upgrades, EV chargers, outlet repair, lighting, and 24/7 emergency electrical service. Free estimates.",
-  generator: 'v0.app',
   icons: {
     icon: [
       {
