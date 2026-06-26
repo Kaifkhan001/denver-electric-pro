@@ -107,22 +107,18 @@ export function Contact() {
 
             {mapFailed ? (
               <div
-                className="mt-6 flex w-full items-center justify-center rounded-lg"
-                style={{
-                  height: 220,
-                  background: '#e8e8e8',
-                  color: '#666',
-                  fontSize: 14,
-                }}
+                className="mt-6 flex w-full items-center justify-center rounded-lg text-sm text-muted-foreground"
+                style={{ height: 220, background: 'var(--muted)' }}
               >
-                📍 Serving Denver, CO and surrounding areas
+                Serving Denver, CO and surrounding areas
               </div>
             ) : (
-              <img
-                src="https://maps.googleapis.com/maps/api/staticmap?center=Denver,CO&zoom=12&size=600x220&maptype=roadmap&color:0x1A1A2E&key=YOUR_API_KEY_HERE"
-                alt="Denver service area map"
-                className="mt-6 w-full rounded-lg object-cover"
+              <iframe
+                title="Denver service area map"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-105.10%2C39.62%2C-104.78%2C39.83&layer=mapnik&marker=39.7392%2C-104.9903"
+                className="mt-6 w-full rounded-lg border-0"
                 style={{ height: 220 }}
+                loading="lazy"
                 onError={() => setMapFailed(true)}
               />
             )}
